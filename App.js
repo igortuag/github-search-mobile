@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,12 +18,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const App: () => React$Node = () => {
+export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.welcome}>Hello World</Text>
     </View>
   );
-};
-
-export default App;
+}
