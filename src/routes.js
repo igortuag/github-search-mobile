@@ -10,14 +10,14 @@ const UserRoutes = () => (
   <Auth.Navigator
     screenOptions={{
       // headerShown: false,
-      headerTintColor: '#fff',
+      headerTintColor: '#f4ede8',
       headerStyle: {
         backgroundColor: '#7159c1',
       },
       cardStyle: { backgroundColor: '#312e38' },
     }}
   >
-    <Auth.Screen name="Main" component={Main} />
+    <Auth.Screen name="Usuários" component={Main} />
     <Auth.Screen name="User" component={User} />
   </Auth.Navigator>
 );

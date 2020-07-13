@@ -10,18 +10,19 @@ export const Form = styled.View`
   flex-direction: row;
   padding-bottom: 20px;
   border-bottom-width: 1px;
-  border-color: #eee;
+  border-color: #514c5c;
 `;
 
 export const Input = styled.TextInput.attrs({
-  placeholderTextColor: '#999',
+  placeholderTextColor: '#f4ede8',
 })`
   flex: 1;
   height: 40px;
-  background: #eee;
+  background: #514c5c;
   border-radius: 4px;
+  color: #f4ede8;
   padding: 0 15px;
-  border: 1px solid #eee;
+  border: 1px solid #514c5c;
 `;
 
 export const SubmitButton = styled(RectButton)`
@@ -31,4 +32,57 @@ export const SubmitButton = styled(RectButton)`
   border-radius: 4px;
   margin-left: 10px;
   padding: 0 12px;
+`;
+
+export const List = styled.FlatList.attrs({
+  showsVerticalScrollIndicator: false,
+})`
+  margin-top: 20px;
+`;
+
+export const User = styled.View`
+  align-items: center;
+  margin: 0 20px 30px;
+`;
+
+export const Avatar = styled.Image`
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background-color: #514c5c;
+`;
+
+export const Name = styled.Text`
+  font-size: 14px;
+  color: #f4ede8;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+`;
+
+export const Bio = styled.Text.attrs({
+  numberOfLines: 2,
+})`
+  font-size: 13px;
+  line-height: 18px;
+  color: #999;
+  margin-top: 5px;
+  text-align: center;
+`;
+
+export const ProfileButton = styled(RectButton)`
+  margin-top: 10px;
+  align-self: stretch;
+  border-radius: 4px;
+  background: #7159c1;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+`;
+
+export const ProfileButtonText = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+  color: #f4ede8;
+  text-transform: uppercase;
 `;
