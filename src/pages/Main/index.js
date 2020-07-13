@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Keyboard, ActivityIndicator } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import api from '../../services/api';
 
@@ -17,12 +18,29 @@ import {
   ProfileButtonText,
 } from './styles';
 
+const KEY_ASYNC_STORAGE = '@intro-rn:users:key';
 export default class Main extends Component {
   state = {
     newUser: '',
     users: [],
     loading: false,
   };
+
+  async componentDidMount() {
+    const users = await AsyncStorage.getItem(KEY_ASYNC_STORAGE);
+
+    if (users) {
+      AsyncStorage.setItem(KEY_ASYNC_STORAGE, JSON.stringify(users));
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    const { users } = this.state;
+
+    if (prevState.users !== users) {
+      AsyncStorage.setItem('users', JSON.stringify());
+    }
+  }
 
   handleAddUser = async () => {
     const { users, newUser } = this.state;
@@ -64,7 +82,7 @@ export default class Main extends Component {
           />
           <SubmitButton onPress={this.handleAddUser}>
             {loading ? (
-              <ActivityIndicator color="#FFF" />
+              <ActivityIndicator loading={loading} color="#FFF" />
             ) : (
               <Icon name="add" size={20} color="#FFF" />
             )}
